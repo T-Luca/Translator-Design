@@ -917,7 +917,7 @@ printf( "SEMICOLON: %s\n", yytext );
 case 15:
 YY_RULE_SETUP
 #line 30 "tiny.l"
-printf( "COMMA: %s\n", yytext );
+printf( "COMMcdA: %s\n", yytext );
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
@@ -2030,19 +2030,17 @@ void yyfree (void * ptr )
 #line 52 "tiny.l"
 
 
-void main( argc, argv )
-int argc;
-char **argv;
- {
-  ++argv, --argc;
-  if ( argc > 0 )
-    yyin = fopen( argv[0], "r" );
-  else
-    yyin = stdin;
-
+void main()
+{
+  yyin = fopen("test.txt", "r" );
+  if(!yyin){
+    perror("File opening failed");
+  }
   yylex();
+
 }
 
 int yywrap() {
-   return 1;
+  system("pause");  
+  return 1;
 }

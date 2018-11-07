@@ -12,7 +12,7 @@ QCHAR \"(\\.|[^"\\])*\"
 %%
     /*** Rules ***/
 
-"//".*                   printf( "COMMENT: %s\n", yytext );
+"//".*					 printf( "COMMENT: %s\n", yytext );
 "int"                    printf( "INT: %s\n", yytext );
 "if"                     printf( "IF: %s\n", yytext );
 "else"                   printf( "ELSE: %s\n", yytext );
@@ -26,7 +26,7 @@ QCHAR \"(\\.|[^"\\])*\"
 "]"                      printf( "RBRACKET: %s\n", yytext );
 "="                      printf( "ASSIGN: %s\n", yytext );
 ";"                      printf( "SEMICOLON: %s\n", yytext );
-","                      printf( "COMMA: %s\n", yytext );
+","                      printf( "COMMcdA: %s\n", yytext );
 "+"                      printf( "PLUS: %s\n", yytext );
 "-"                      printf( "MINUS: %s\n", yytext );
 "*"                      printf( "TIMES: %s\n", yytext );
@@ -50,19 +50,16 @@ QCHAR \"(\\.|[^"\\])*\"
 
 %%
 
-void main( argc, argv )
-int argc;
-char **argv;
- {
-  ++argv, --argc;
-  if ( argc > 0 )
-    yyin = fopen( argv[0], "r" );
-  else
-    yyin = stdin;
-
+void main()
+{
+  yyin = fopen("test.txt", "r" );
+  if(!yyin){
+    perror("File opening failed");
+  }
   yylex();
 }
 
 int yywrap() {
-   return 1;
+  system("pause");  
+  return 1;
 }
