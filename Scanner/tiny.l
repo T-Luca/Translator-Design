@@ -12,7 +12,7 @@ QCHAR \"(\\.|[^"\\])*\"
 %%
     /*** Rules ***/
 
-"//".*					 printf( "COMMENT: %s\n", yytext );
+"//".*                   printf( "COMMENT: %s\n", yytext );
 "int"                    printf( "INT: %s\n", yytext );
 "if"                     printf( "IF: %s\n", yytext );
 "else"                   printf( "ELSE: %s\n", yytext );
