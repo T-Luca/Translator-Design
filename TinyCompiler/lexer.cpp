@@ -1,5 +1,6 @@
+#line 1 "lexer.cpp"
 
-#line 2 "lex.yy.c"
+#line 3 "lexer.cpp"
 
 #define  YY_INT_ALIGNED short int
 
@@ -394,6 +395,9 @@ void yyfree ( void *  );
 #define YY_AT_BOL() (YY_CURRENT_BUFFER_LVALUE->yy_at_bol)
 
 /* Begin user sect3 */
+
+#define yywrap() (/*CONSTCOND*/1)
+#define YY_SKIP_YYWRAP
 typedef flex_uint8_t YY_CHAR;
 
 FILE *yyin = NULL, *yyout = NULL;
@@ -560,22 +564,20 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "tiny.l"
-#line 2 "tiny.l"
+#line 1 "lexer.l"
+#line 4 "lexer.l"
 /* Analizor lexical pentru limbajul Tiny - ANALEXC*/
 #include <math.h>
-#line 567 "lex.yy.c"
-#line 568 "lex.yy.c"
+#include "parser.tab.h"
+#line 572 "lexer.cpp"
+#line 573 "lexer.cpp"
 
 #define INITIAL 0
 
-#ifndef YY_NO_UNISTD_H
-/* Special case for "unistd.h", since it is non-ANSI. We include it way
- * down here because we want the user's section 1 to have been scanned first.
- * The user has a chance to override it with an option.
- */
-#include <unistd.h>
-#endif
+/*windows compatibility case*/
+#include <io.h>
+#define isatty _isatty
+#define fileno _fileno
     
 #ifndef YY_EXTRA_TYPE
 #define YY_EXTRA_TYPE void *
@@ -782,12 +784,12 @@ YY_DECL
 		}
 
 	{
-#line 12 "tiny.l"
+#line 15 "lexer.l"
 
-#line 14 "tiny.l"
+#line 17 "lexer.l"
     /*** Rules ***/
 
-#line 790 "lex.yy.c"
+#line 792 "lexer.cpp"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -846,187 +848,187 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 16 "tiny.l"
+#line 19 "lexer.l"
 printf( "COMMENT: %s\n", yytext );
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 17 "tiny.l"
+#line 20 "lexer.l"
 printf( "INT: %s\n", yytext );
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 18 "tiny.l"
+#line 21 "lexer.l"
 printf( "IF: %s\n", yytext );
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 19 "tiny.l"
+#line 22 "lexer.l"
 printf( "ELSE: %s\n", yytext );
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 20 "tiny.l"
-printf( "OPERATOR: %s\n", yytext );
+#line 23 "lexer.l"
+printf( "NEQUAL: %s\n", yytext );
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 21 "tiny.l"
+#line 24 "lexer.l"
 printf( "RETURN: %s\n", yytext );
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 22 "tiny.l"
+#line 25 "lexer.l"
 printf( "LPAR: %s\n", yytext );
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 23 "tiny.l"
+#line 26 "lexer.l"
 printf( "RPAR: %s\n", yytext );
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 24 "tiny.l"
+#line 27 "lexer.l"
 printf( "LBRACE: %s\n", yytext );
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 25 "tiny.l"
+#line 28 "lexer.l"
 printf( "RBRACE: %s\n", yytext );
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 26 "tiny.l"
+#line 29 "lexer.l"
 printf( "LBRACKET: %s\n", yytext );
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 27 "tiny.l"
+#line 30 "lexer.l"
 printf( "RBRACKET: %s\n", yytext );
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 28 "tiny.l"
+#line 31 "lexer.l"
 printf( "ASSIGN: %s\n", yytext );
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 29 "tiny.l"
+#line 32 "lexer.l"
 printf( "SEMICOLON: %s\n", yytext );
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 30 "tiny.l"
-printf( "COMMcdA: %s\n", yytext );
+#line 33 "lexer.l"
+printf( "COMMA: %s\n", yytext );
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 31 "tiny.l"
+#line 34 "lexer.l"
 printf( "PLUS: %s\n", yytext );
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 32 "tiny.l"
+#line 35 "lexer.l"
 printf( "MINUS: %s\n", yytext );
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 33 "tiny.l"
+#line 36 "lexer.l"
 printf( "TIMES: %s\n", yytext );
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 34 "tiny.l"
+#line 37 "lexer.l"
 printf( "DIVIDE: %s\n", yytext );
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 35 "tiny.l"
+#line 38 "lexer.l"
 printf( "EQUAL: %s\n", yytext );
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 36 "tiny.l"
+#line 39 "lexer.l"
 printf( "CHAR: %s\n", yytext );
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 37 "tiny.l"
+#line 40 "lexer.l"
 printf( "WRITE: %s\n", yytext );
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 38 "tiny.l"
+#line 41 "lexer.l"
 printf( "READ: %s\n", yytext );
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 39 "tiny.l"
+#line 42 "lexer.l"
 printf( "GREATER: %s\n", yytext );
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 40 "tiny.l"
+#line 43 "lexer.l"
 printf( "LESS: %s\n", yytext );
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 41 "tiny.l"
+#line 44 "lexer.l"
 printf( "NOT: %s\n", yytext );
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 42 "tiny.l"
+#line 45 "lexer.l"
 printf( "LENGTH: %s\n", yytext );
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 43 "tiny.l"
+#line 46 "lexer.l"
 printf( "WHILE: %s\n", yytext );
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 44 "tiny.l"
+#line 47 "lexer.l"
 printf( "LETTER: %s\n", yytext );
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 45 "tiny.l"
+#line 48 "lexer.l"
 printf( "DIGIT: %s\n", yytext );
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 46 "tiny.l"
+#line 49 "lexer.l"
 printf( "NAME: %s\n", yytext );
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 47 "tiny.l"
+#line 50 "lexer.l"
 printf( "NUMBER: %s\n", yytext );
 	YY_BREAK
 case 33:
 /* rule 33 can match eol */
 YY_RULE_SETUP
-#line 48 "tiny.l"
+#line 51 "lexer.l"
 printf( "QCHAR: %s\n", yytext );
 	YY_BREAK
 case 34:
 /* rule 34 can match eol */
 YY_RULE_SETUP
-#line 49 "tiny.l"
-;/* elimina spatiile albe si sf√¢rsitul de linie */
+#line 52 "lexer.l"
+;/* elimina spatiile albe si sf‚rsitul de linie */
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 50 "tiny.l"
+#line 53 "lexer.l"
 printf( "Caracter necunoscut: %s\n", yytext );
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 52 "tiny.l"
+#line 55 "lexer.l"
 ECHO;
 	YY_BREAK
-#line 1029 "lex.yy.c"
+#line 1031 "lexer.cpp"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2027,20 +2029,5 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 52 "tiny.l"
+#line 55 "lexer.l"
 
-
-void main()
-{
-  yyin = fopen("test.txt", "r" );
-  if(!yyin){
-    perror("File opening failed");
-  }
-  yylex();
-
-}
-
-int yywrap() {
-  system("pause");  
-  return 1;
-}
